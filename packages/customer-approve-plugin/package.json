@@ -2,7 +2,7 @@
   "name": "@area37/vendure-plugin-customer-approve",
   "description": "Vendure plugin for approving customers",
   "repository": "https://github.com/Area37/vendure-plugins",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
