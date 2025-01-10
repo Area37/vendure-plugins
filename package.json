@@ -10,8 +10,6 @@
     "build": "yarn lerna run build --concurrency 1"
   },
   "version": "1.0.0",
-  "description": "Plugin template",
-  "repository": "https://github.com/vendure-ecommerce/plugin-template",
   "license": "MIT",
   "engines": {
     "node": ">=20.0.0"

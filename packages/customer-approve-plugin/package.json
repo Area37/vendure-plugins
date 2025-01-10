@@ -1,6 +1,7 @@
 {
   "name": "@area37/vendure-plugin-customer-approve",
   "description": "Vendure plugin for approving customers",
+  "repository": "https://github.com/Area37/vendure-plugins",
   "version": "0.0.1",
   "license": "MIT",
   "publishConfig": {
@@ -17,6 +18,6 @@
     "dev": "ts-node dev-server/index.ts",
     "codegen": "ts-node generate-types.ts",
     "build": "rimraf lib && tsc -p ./tsconfig.build.json && ts-node copy-ui-src.ts",
-    "e2e": "cross-env PACKAGE=example-plugin vitest -c ../../utils/e2e/vitest.config.mts"
+    "e2e": "cross-env PACKAGE=plugin-customer-approve vitest -c ../../utils/e2e/vitest.config.mts"
   }
 }
