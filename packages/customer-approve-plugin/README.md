@@ -3,6 +3,8 @@
 This plugin allows you to manually approve customers before they can log in and place orders.
 It is particularly useful in B2B scenarios where you want to vet customers before granting them access to your store.
 
+![@area37/vendure-plugin-customer-approve horizontal](https://raw.githubusercontent.com/Area37/vendure-plugins/refs/heads/master/packages/customer-approve-plugin/demo.gif)
+
 ## Installation
 
 1. To install the plugin, run the following command:
