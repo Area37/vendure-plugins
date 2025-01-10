@@ -9,8 +9,17 @@
   },
   "files": [
     "dist/**/*",
-    "CHANGELOG.md",
-    "docs"
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "vendure",
+    "vendure-plugins",
+    "vendure-packages",
+    "b2b",
+    "customer-approve",
+    "customer",
+    "approve"
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
