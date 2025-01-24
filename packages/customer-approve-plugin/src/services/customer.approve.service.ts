@@ -5,8 +5,13 @@ import {
   TransactionalConnection,
   CustomerService,
   UserService,
+  HistoryService,
+  EventBus,
   User,
+  NATIVE_AUTH_STRATEGY_NAME,
+  AccountVerifiedEvent
 } from "@vendure/core";
+import { HistoryEntryType } from "@vendure/common/lib/generated-types";
 
 @Injectable()
 export class CustomerApproveService {
@@ -14,6 +19,8 @@ export class CustomerApproveService {
     private connection: TransactionalConnection,
     private readonly userService: UserService,
     private readonly customerService: CustomerService,
+    private readonly historyService: HistoryService,
+    private readonly eventBus: EventBus,
   ) {}
 
   async switchApproveCustomer(
@@ -32,6 +39,18 @@ export class CustomerApproveService {
       await this.connection
         .getRepository(ctx, User)
         .save(user, { reload: false });
+
+      if (user.verified) {
+        await this.historyService.createHistoryEntryForCustomer({
+          customerId: customer.id,
+          ctx,
+          type: HistoryEntryType.CUSTOMER_VERIFIED,
+          data: {
+            strategy: NATIVE_AUTH_STRATEGY_NAME,
+          },
+        });
+        await this.eventBus.publish(new AccountVerifiedEvent(ctx, customer));
+      }
       return !user?.verified;
     }
 
